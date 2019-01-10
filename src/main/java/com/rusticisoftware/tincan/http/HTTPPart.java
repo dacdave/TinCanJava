@@ -1,5 +1,5 @@
 /*
-    Copyright 2013 Rustici Software
+    Copyright 2016 Rustici Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -13,24 +13,17 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 */
-package com.rusticisoftware.tincan.exceptions;
+package com.rusticisoftware.tincan.http;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
-/**
- * FailedHTTPExchange
- */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class FailedHTTPExchange extends RuntimeException {
-    private int status;
-
-    public FailedHTTPExchange(String message, int status) {
-        super(message);
-        this.setStatus(status);
-    }
-    public FailedHTTPExchange(int status) {
-        this("Failed HTTP Exchange", status);
-    }
+@NoArgsConstructor
+public class HTTPPart {
+    private String sha2;
+    private String contentType;
+    private byte[] content;
 }

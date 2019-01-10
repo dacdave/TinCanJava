@@ -15,13 +15,12 @@
 */
 package com.rusticisoftware.tincan.http;
 
+import com.rusticisoftware.tincan.Attachment;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import org.eclipse.jetty.client.ContentExchange;
-import org.eclipse.jetty.io.Buffer;
-import org.eclipse.jetty.io.ByteArrayBuffer;
+import javax.servlet.http.Part;
 
-import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -35,7 +34,7 @@ public class HTTPRequest {
     private Map<String, String> queryParams;
     private Map<String, String> headers;
     private String contentType;
-    private ByteArrayBuffer contentBuffer;
     private byte[] content;
     private HTTPResponse response;
+    private List<HTTPPart> partList;
 }
